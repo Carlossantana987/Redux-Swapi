@@ -25,9 +25,8 @@ class CharacterListView extends React.Component {
   }
 }
 const mstp = state => ({
-  error: state.error,
-  isLoading: state.isLoading,
-  characters: state.characters
+  isLoading: state.charsReducer.isLoading,
+  characters: state.charsReducer.characters
 });
 // our mapStateToProps needs to have two properties inherited from state
 // the characters and the fetching boolean

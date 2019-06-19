@@ -5,10 +5,10 @@ export const FETCH_API_START = "FETCH_API_START";
 export const FETCH_API_SUCCESS = "FETCH_API_START";
 export const FETCH_API_ERROR = "FETCH_API_START";
 
-export const fetchAPI = dispatch => {
+export const fetchAPI = () => dispatch => {
   dispatch({ type: FETCH_API_START });
   axios
-    .get(`https://swapi.co/api/people`)
+    .get("https://swapi.co/api/people/")
     .then(res => {
       dispatch({ type: FETCH_API_SUCCESS, payload: res.data.results });
     })

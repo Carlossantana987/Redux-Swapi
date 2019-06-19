@@ -3,6 +3,7 @@ import {
   FETCH_API_SUCCESS,
   FETCH_API_ERROR
 } from "../actions";
+
 const initialState = {
   characters: [],
   error: null,
@@ -11,6 +12,7 @@ const initialState = {
   // Array characters, Boolean fetching, null error.
 };
 export const charsReducer = (state = initialState, action) => {
+  console.log(action.payload);
   switch (action.type) {
     case FETCH_API_START:
       return {
