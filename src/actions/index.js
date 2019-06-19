@@ -1,4 +1,19 @@
 // we'll need axios
+import axios from "axios";
+
+export const FETCH_API_START = "FETCH_API_START";
+export const FETCH_API_SUCCESS = "FETCH_API_START";
+export const FETCH_API_ERROR = "FETCH_API_START";
+
+export const fetchAPI = data => dispatch => {
+  dispatch({ type: FETCH_API_START });
+  axios
+    .get(`https://swapi.co/api/people`)
+    .then(res => {
+      dispatch({ type: FETCH_API_SUCCESS, payload: res.data });
+    })
+    .catch(err => dispatch({ type: FETCH_API_ERROR }));
+};
 
 // we'll need to create 3 different action types here.
 // one for fetching, one for success and one for failure
