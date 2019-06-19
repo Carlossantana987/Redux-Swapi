@@ -5,7 +5,7 @@ import {
 } from "../actions";
 const initialState = {
   characters: [],
-  error: "",
+  error: null,
   isLoading: false
 
   // Array characters, Boolean fetching, null error.
@@ -22,13 +22,13 @@ export const charsReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: false,
-        characters: action.payload
+        characters: action.payload.results
       };
     case FETCH_API_ERROR:
       return {
         ...state,
         isLoading: false,
-        error: err.response
+        error: action.payload
       };
 
     // Fill me in with the important reducers
