@@ -5,10 +5,6 @@ import { CharacterList } from "../components";
 // import actions
 
 class CharacterListView extends React.Component {
-  constructor() {
-    super();
-  }
-
   componentDidMount() {
     this.props.fetchAPI();
   }
@@ -25,6 +21,7 @@ class CharacterListView extends React.Component {
   }
 }
 const mstp = state => ({
+  error: state.charsReducer.error,
   isLoading: state.charsReducer.isLoading,
   characters: state.charsReducer.characters
 });

@@ -6,31 +6,31 @@ import {
 
 const initialState = {
   characters: [],
-  error: null,
+  error: " ",
   isLoading: false
 
   // Array characters, Boolean fetching, null error.
 };
 export const charsReducer = (state = initialState, action) => {
-  console.log(action.payload);
   switch (action.type) {
     case FETCH_API_START:
       return {
         ...state,
-        error: "",
+        error: " ",
         isLoading: true
       };
     case FETCH_API_SUCCESS:
       return {
         ...state,
+        error: " ",
         isLoading: false,
         characters: action.payload.results
       };
     case FETCH_API_ERROR:
       return {
         ...state,
-        isLoading: false,
-        error: action.payload
+        error: "",
+        isLoading: false
       };
 
     // Fill me in with the important reducers
